@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GoldenPips Empire - Trade Forex, Gold & Crypto</title>
+<style>
+*{box-sizing:border-box}body{font-family:Arial;margin:0;background:#0a0f1e;color:#fff;padding-bottom:30px}
+header{background:#0b2a6b;color:#fff;padding:12px 14px;position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center}
+.h-left{display:flex;gap:10px;align-items:center}.h-left b{font-size:17px}
+header button{background:#ffb400;border:none;padding:10px 14px;border-radius:20px;font-weight:900}
+.hero{margin:12px;background:linear-gradient(135deg,#0b2a6b,#b8860b,#ffb400);color:#fff;border-radius:18px;padding:22px 16px;text-align:center}
+.hero h1{margin:8px 0;font-size:26px}.hero p{color:#dbeafe;font-size:13px}
+.hero button{background:#fff;color:#000;border:none;padding:13px 24px;border-radius:25px;font-weight:900;font-size:15px;margin-top:12px}
+.live{background:#111827;margin:12px;border-radius:16px;padding:14px}
+.live b{color:#00ff88}.live span{color:#ff4444}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px}
+.card{background:#1a2233;border-radius:16px;padding:14px;text-align:center}
+.card h3{margin:6px 0;font-size:15px}.card p{font-size:12px;color:#aaa;margin:0}
+.card button{background:#0a7a3a;color:#fff;border:none;padding:10px;width:100%;border-radius:20px;font-weight:800;margin-top:10px}
+.card button.gold{background:#ffb400;color:#000}
+.sec{padding:2px 12px;font-weight:900;font-size:16px}
+.info{background:#1a2233;margin:10px;border-radius:16px;padding:15px;font-size:13px;line-height:1.7}
+.badge{display:inline-block;background:#00a651;color:#fff;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:800}
+.loginBox{background:#fff;color:#111;margin:10px;border-radius:18px;padding:16px}
+input,select{width:100%;padding:13px;margin:7px 0;border:1px solid #ddd;border-radius:11px;font-size:15px}
+.btn{border:none;padding:14px;width:100%;border-radius:12px;font-weight:900;font-size:15px}
+.btn-blue{background:#0b2a6b;color:#fff}.btn-green{background:#00a651;color:#fff}.btn-wa{background:#25D366;color:#fff}.btn-gold{background:#ffb400;color:#000}
+.demo{background:#fff8e1;color:#111;padding:11px;border-radius:10px;font-size:12px;margin-top:10px;line-height:1.7}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);overflow-y:auto;z-index:50}
+.box{background:#fff;color:#111;margin:10px;border-radius:20px;padding:16px;min-height:90vh}
+.close-btn{background:#000;color:#fff;border:none;padding:8px 14px;border-radius:20px;float:right}
+table{width:100%;border-collapse:collapse;font-size:13px;color:#111}th,td{border:1px solid #e5e5e5;padding:9px;text-align:left}th{background:#0b2a6b;color:#fff}
+.tab{display:flex;gap:8px;overflow-x:auto;padding:8px 0}.tab button{white-space:nowrap;border:none;background:#eef2ff;padding:9px 14px;border-radius:20px;font-weight:800}.tab button.active{background:#000;color:#fff}
+.kpi{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:10px 0}.kpi div{background:#f4f6fb;border-radius:14px;padding:12px;text-align:center;color:#111}.kpi b{font-size:20px;display:block}
+</style>
+</head>
+<body>
+<header><div class="h-left"><div style="font-size:28px">👑</div><div><b>GoldenPips Empire</b><br><span style="font-size:11px;color:#ffd84d">Trade • Earn • Withdraw</span></div></div><button onclick="showLogin()">Login / Register</button></header>
+<div class="hero"><h1>Trade Forex, Gold & Crypto</h1><p>Port Harcourt • Nigeria • Trade From Your Phone</p><p><span class="badge">✅ Regulated Partner</span> <span class="badge" style="background:#ffb400;color:#000">🔥 Min Deposit $10</span></p><button onclick="showLogin()">🚀 JOIN THE EMPIRE</button><p style="font-size:11px">Demo Account Free • Deposit With Naira • Withdraw To Bank</p></div>
+<div class="live"><b>📊 LIVE MARKET</b><br><br>EUR/USD: <b id="eur">1.0842 ▲</b> &nbsp; GBP/USD: <b id="gbp">1.2715 ▲</b><br>XAUUSD (Gold): <b style="color:#ffb400" id="gold">2,642.50 ▲</b><br>BTC/USD: <b id="btc">97,450 ▲</b> &nbsp; USD/NGN: <b>1,550</b><br><p style="font-size:11px;color:#888">Live prices dey move every second. Demo for now.</p></div>
+<div class="sec">💰 What You Fit Trade</div>
+<div class="grid">
+<div class="card"><div style="font-size:30px">💶</div><h3>Forex</h3><p>EUR/USD, GBP/USD, USD/JPY</p><button onclick="openTrade('EUR/USD')">Trade Forex</button></div>
+<div class="card"><div style="font-size:30px">🥇</div><h3>Gold (XAUUSD)</h3><p>Most profitable for Nigerians</p><button class="gold" onclick="openTrade('XAUUSD')">Trade Gold</button></div>
+<div class="card"><div style="font-size:30px">₿</div><h3>Crypto</h3><p>BTC, ETH, USDT</p><button onclick="openTrade('BTC/USD')">Trade Crypto</button></div>
+<div class="card"><div style="font-size:30px">📊</div><h3>Copy Trading</h3><p>Copy our expert traders</p><button onclick="openTrade('COPY')">Copy Trade</button></div>
+</div>
+<div class="sec">🔥 Today's Signals (VIP)</div>
+<div class="info"><b>XAUUSD - BUY @ 2640</b><br>TP: 2655 • SL: 2632 • Profit: +150 pips<br><span class="badge">✅ WIN</span> Yesterday: +120 pips<br><br><b>EURUSD - SELL @ 1.0850</b><br>TP: 1.0800 • SL: 1.0880<br><button class="btn btn-green" onclick="showLogin()">🔓 UNLOCK VIP SIGNALS - ₦20,000/Month</button></div>
+<div class="sec">💳 How To Start - 3 Steps</div>
+<div class="info"><b>1.</b> Register Free - 1 Minute<br><b>2.</b> Deposit - ₦15,000 ($10) via Bank / USDT<br><b>3.</b> Trade & Withdraw to your Bank<br><br><b>Withdrawal:</b> Monday - Friday, 9am - 5pm, go enter within 2 hours.</div>
+<div class="sec">💬 Why Trade With GoldenPips Empire?</div>
+<div class="info">✅ Deposit with Naira - No wahala<br>✅ Withdraw to Nigerian Bank<br>✅ Free Mentorship for Beginners<br>✅ WhatsApp Support 24/7<br>✅ Copy Trading Available<br><b>📞 WhatsApp:</b> 0903 700 2209</div>
+<div class="sec">🔑 Register / Login</div>
+<div class="loginBox" id="loginBox"><h2 style="margin:0">Create Free Account</h2><p style="font-size:12px;color:#666">Demo account with $10,000 virtual money</p><input id="fxName" placeholder="Full Name"><input id="fxPhone" placeholder="Phone / WhatsApp e.g 0903..."><input id="fxEmail" placeholder="Email"><select id="fxAcc"><option>Standard Account - $10 Min</option><option>Cent Account - $1 Min</option><option>Demo Account - $10,000 Free</option><option>VIP Copy Trading - $100 Min</option></select><button class="btn btn-blue" onclick="registerFX()">CREATE ACCOUNT →</button><button class="btn btn-wa" onclick="window.open('https://wa.me/2349037002209?text=Hello GoldenPips Empire, I want to start Forex Trading','_blank')">💬 Chat On WhatsApp</button><div class="demo"><b>DEMO LOGIN:</b><br>Trader: <b>GOLD001 / 1234</b> - Balance $1,250<br>Admin / IB: <b>admin / 1234</b> - See all traders + commission</div></div>
+<div style="text-align:center;font-size:11px;color:#888;padding:10px">⚠️ Risk Warning: Forex trading involves risk. Trade only money you fit afford to lose.<br>© 2026 GoldenPips Empire • Port Harcourt</div>
+<div class="modal" id="dashModal"><div class="box"><button class="close-btn" onclick="closeDash()">✕ Close</button><h2 id="dashTitle">Dashboard</h2><p id="dashUser" style="color:#666;font-size:13px"></p><div class="tab" id="dashTabs"></div><div id="dashContent"></div></div></div>
+<script>
+var TRADERS=[
+{id:"GOLD001",name:"Godstime James",phone:"09037002209",bal:1250,profit:250,deposit:1000,withdraw:0,plan:"Standard"},
+{id:"GOLD002",name:"Blessing Okoro",phone:"09037002209",bal:3400,profit:1400,deposit:2000,withdraw:500,plan:"VIP Copy"},
+{id:"GOLD003",name:"Emmanuel Eze",phone:"09037002209",bal:85,profit:-15,deposit:100,withdraw:0,plan:"Cent"},
+{id:"GOLD004",name:"Adaeze Nwosu",phone:"09037002209",bal:5200,profit:2200,deposit:3000,withdraw:1000,plan:"Standard"},
+];
+function showLogin(){document.getElementById('loginBox').scrollIntoView({behavior:'smooth'});}
+function openDash(t,u,tabs,content){document.getElementById('dashTitle').innerText=t;document.getElementById('dashUser').innerText=u;document.getElementById('dashTabs').innerHTML=tabs;document.getElementById('dashContent').innerHTML=content;document.getElementById('dashModal').style.display='block';}
+function closeDash(){document.getElementById('dashModal').style.display='none';}
+function registerFX(){var n=document.getElementById('fxName').value;var p=document.getElementById('fxPhone').value;if(!n||!p)return alert('Enter Name and Phone');var id='GOLD'+String(TRADERS.length+1).padStart(3,'0');TRADERS.push({id:id,name:n,phone:p,bal:10000,profit:0,deposit:0,withdraw:0,plan:"Demo"});alert('✅ Welcome to GoldenPips Empire!\\n\\nYour ID: '+id+'\\nPassword: 1234\\nDemo Balance: $10,000\\n\\nLogin now to start trading.');openTrader(TRADERS[TRADERS.length-1]);}
+function openTrader(s){
+openDash('📈 Trader Dashboard',`${s.name} • ${s.id} • ${s.plan}`,`<button class="active">Trade</button><button onclick="showDeposit('${s.id}')">Deposit</button><button onclick="showWithdraw('${s.id}')">Withdraw</button>`,
+`<div class="kpi"><div><b>$${s.bal.toLocaleString()}</b>Balance</div><div><b style="color:${s.profit>=0?'green':'red'}">$${s.profit.toLocaleString()}</b>Profit</div><div><b>$${s.deposit.toLocaleString()}</b>Deposited</div></div>
+<div class="info"><b>📊 TRADE NOW - Demo Terminal</b><br>Select Pair, Lot Size, Click BUY or SELL</div>
+<select id="pair"><option>XAUUSD (Gold)</option><option>EUR/USD</option><option>GBP/USD</option><option>BTC/USD</option></select>
+<select id="lot"><option>0.01 Lot - $0.10 per pip</option><option>0.05 Lot - $0.50 per pip</option><option>0.10 Lot - $1 per pip</option><option>0.50 Lot - $5 per pip</option><option>1.00 Lot - $10 per pip</option></select>
+<div style="display:flex;gap:10px"><button class="btn btn-green" onclick="doTrade('${s.id}','BUY')">▲ BUY</button><button class="btn" style="background:#ff4444;color:#fff" onclick="doTrade('${s.id}','SELL')">▼ SELL</button></div>
+<br><div class="info"><b>📈 Open Trades:</b><br>XAUUSD BUY 0.10 @ 2640.50 - <b style="color:green">+$45.20 Floating</b><br>EURUSD SELL 0.05 @ 1.0845 - <b style="color:red">-$12.10 Floating</b><br><button class="btn btn-blue" onclick="closeAllTrades('${s.id}')">Close All & Take Profit</button></div>
+<br><div class="info"><b>🔥 VIP Signal Today:</b><br>XAUUSD BUY @ 2640, TP 2655, SL 2632<br><button class="btn btn-green" onclick="alert('VIP Signals: Join WhatsApp Group - ₦20,000/month')">Join VIP ₦20,000</button></div>`);
+}
+function openTrade(pair){alert('To trade '+pair+', register free account first. Demo Balance $10,000 go dey inside.');showLogin();}
+function doTrade(id,type){var pair=document.getElementById('pair').value;var lot=document.getElementById('lot').value;var s=TRADERS.find(x=>x.id==id);var profit=Math.floor(Math.random()*80)+10;if(Math.random()>0.4){s.bal+=profit;s.profit+=profit;alert('✅ '+type+' '+pair+' WIN!\\nProfit: +$'+profit+'\\nNew Balance: $'+s.bal.toLocaleString());}else{var loss=Math.floor(Math.random()*40)+5;s.bal-=loss;s.profit-=loss;alert('❌ '+type+' '+pair+' LOSS\\nLoss: -$'+loss+'\\nNew Balance: $'+s.bal.toLocaleString());}openTrader(s);}
+function closeAllTrades(id){var s=TRADERS.find(x=>x.id==id);s.bal+=33;s.profit+=33;alert('✅ All trades closed! Profit +$33 added. Balance: $'+s.bal.toLocaleString());openTrader(s);}
+function showDeposit(id){var s=TRADERS.find(x=>x.id==id);openDash('💳 Deposit - '+s.name,`${s.id} • Balance $${s.bal}`,`<button onclick="openTrader(TRADERS.find(x=>x.id=='${id}'))">← Back</button>`,`<div class="info"><b>Deposit With Naira:</b><br>₦15,500 = $10 • ₦77,500 = $50 • ₦155,000 = $100<br><br><b>Bank Transfer:</b><br>Bank: Opay<br>Acct Name: GoldenPips Empire<br>Acct No: 9037002209<br><br><b>USDT:</b> Send to wallet, screenshot to WhatsApp</div><input id="depAmt" type="number" placeholder="Amount in $ e.g 50"><button class="btn btn-green" onclick="doDeposit('${id}')">I Don Send - Confirm Deposit</button><button class="btn btn-wa" onclick="window.open('https://wa.me/2349037002209?text=I want to deposit for ${s.name} ${s.id}','_blank')">💬 Confirm on WhatsApp</button>`);}
+function doDeposit(id){var amt=parseInt(document.getElementById('depAmt').value||0);if(amt<=0)return alert('Enter amount');var s=TRADERS.find(x=>x.id==id);s.bal+=amt;s.deposit+=amt;alert('✅ Deposit Confirmed! $'+amt+' added. New Balance $'+s.bal.toLocaleString());openTrader(s);}
+function showWithdraw(id){var s=TRADERS.find(x=>x.id==id);openDash('🏦 Withdraw - '+s.name,`${s.id} • Balance $${s.bal}`,`<button onclick="openTrader(TRADERS.find(x=>x.id=='${id}'))">← Back</button>`,`<div class="info"><b>Available:</b> $${s.bal}<br><b>Min Withdraw:</b> $10<br><b>Time:</b> Within 2 hours (Mon-Fri)</div><input id="wdAmt" type="number" placeholder="Amount $ e.g 100"><input placeholder="Bank Name + Account Number"><button class="btn btn-blue" onclick="doWithdraw('${id}')">Request Withdrawal</button>`);}
+function doWithdraw(id){var amt=parseInt(document.getElementById('wdAmt').value||0);var s=TRADERS.find(x=>x.id==id);if(amt<=0||amt>s.bal)return alert('Enter correct amount, no pass balance');s.bal-=amt;s.withdraw+=amt;alert('✅ Withdrawal Request Sent! $'+amt+' go enter your bank within 2 hours. New Balance $'+s.bal.toLocaleString());openTrader(s);}
+setInterval(()=>{var g=2640+Math.random()*5;document.getElementById('gold').innerText=g.toFixed(2)+' ▲';var e=1.084+Math.random()*0.001;document.getElementById('eur').innerText=e.toFixed(4)+' ▲';var b=97400+Math.floor(Math.random()*200);document.getElementById('btc').innerText=b.toLocaleString()+' ▲';},2000);
+function openAdmin(){
+var totalDep=TRADERS.reduce((a,b)=>a+b.deposit,0);var commission=TRADERS.length*85;
+var rows=TRADERS.map(s=>`<tr><td><b>${s.id}</b></td><td>${s.name}</td><td>${s.plan}</td><td>$${s.deposit}</td><td>$${s.bal}</td><td style="color:${s.profit>=0?'green':'red'}">$${s.profit}</td><td><b>$85</b></td></tr>`).join('');
+openDash('👑 IB / Admin Dashboard','Broker Owner • GoldenPips Empire',`<button class="active">Traders</button>`,
+`<div class="kpi"><div><b>${TRADERS.length}</b>Traders</div><div><b>$${totalDep.toLocaleString()}</b>Total Deposits</div><div><b style="color:green">$${commission}</b>Your Commission</div></div>
+<div class="info"><b>💰 HOW YOU EARN AS IB:</b><br>Each trader wey trade, you collect $5-$10 per lot.<br>4 traders = $${commission} commission this week.<br><b>Your IB Link:</b> goldenpipsempire.com/register?ref=YOURNAME<br>Share am for WhatsApp / TikTok!</div>
+<h3>All Traders</h3><table><tr><th>ID</th><th>Name</th><th>Plan</th><th>Deposit</th><th>Balance</th><th>Profit</th><th>Your Comm.</th></tr>${rows}</table>
+<br><h3>➕ Add Trader Manually</h3><input id="tName" placeholder="Trader Name"><button class="btn btn-green" onclick="addTrader()">Add Trader</button>`);
+}
+function addTrader(){var n=document.getElementById('tName').value;if(!n)return alert('Enter name');var id='GOLD'+String(TRADERS.length+1).padStart(3,'0');TRADERS.push({id:id,name:n,phone:'090...',bal:10000,profit:0,deposit:0,withdraw:0,plan:'Demo'});alert('Trader Added! ID: '+id);openAdmin();}
+</script>
+</body>
+</html>
